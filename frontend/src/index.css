@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/*customerInfoForm styles*/
+
+.customerInfoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  border-radius: 12px;
+  border-width: 2px;
+  border-color: black;
+}
+
+.customerInfoForm label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.customerInfoForm input {
+  padding: 8px;
+  border-radius: 12px;
+  border-width: 2px;
+}
+
+.customerInfoForm input:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.customerInfoForm input:focus {
+  outline: none;
+}
+
+.customerInfoForm button {
+  align-self: center;
+  width: 160px;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: black;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+.customerInfoForm button:hover {
+  background-color: #646664;
+  color:black;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*customerInfoList styles*/
+
+.customersInfoList {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  gap: 32px;
+  padding: 48px;
+  border-radius: 12px;
+  border-width: 2px;
+  border-color: black;
+}
+
+.customersInfoList li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 12px;
+  border-width: 2px;
+}
+
+.customersInfoList li p {
+  font-size: 20px;
+}
+
+.customersInfoList li:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
