@@ -1,5 +1,3 @@
-from enum import Enum
-
 from pydantic import BaseModel
 
 class CustomerCreateSchema(BaseModel):
@@ -28,8 +26,8 @@ class CustomerUpdateSchema(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "name": "Jan",
-                "surname": "Kowalski"
+                "name": "Norbert",
+                "surname": "Gierczak"
             }
         }
 
@@ -38,40 +36,43 @@ class Customer(CustomerCreateSchema):
     id: int
 
 
+class ProductCreateSchema(BaseModel):
+    name: str
+    price: float
+    brand: str
+    description: str
+    color: str
+    material: str
 
-# class StudentCreateSchema(BaseModel):
-#     first_name: str
-#     last_name: str
-
-#     class Config:
-#         schema_extra = {
-#             "example": {
-#                 "first_name": "Zbyszek",
-#                 "last_name": "Kieliszek",
-#             }
-#         }
-
-
-# class StudentUpdateSchema(BaseModel):
-#     first_name: str | None
-#     last_name: str | None
-
-#     class Config:
-#         schema_extra = {
-#             "example": {
-#                 "first_name": "Zbysiu",
-#             }
-#         }
+    class Config:
+        schema_extra = {
+            "example": {
+                "name": "Coffee Express 024",
+                "price": 69.0,
+                "brand": "KawaKafka",
+                "description": "Najlepszy ekspres do kawy na świecie!",
+                "color": "Brązowy",
+                "material": "Mosiądz",
+            }
+        }
 
 
-# class Student(StudentCreateSchema):
-#     id: int
+class Product(ProductCreateSchema):
+    id: int
 
 
-# class Mark(float, Enum):
-#     BARDZO_DOBRY = 5.0
-#     DOBRY_PLUS = 4.5
-#     DOBRY = 4.0
-#     DOSTATECZNY_PLUS = 3.5
-#     DOSTATECZNY = 3.0
-#     NIEDOSTATECZNY = 2.0
+class OrderCreateSchema(BaseModel):
+    customer_id: int
+    products_to_order: list[int]
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "customer_id": 4,
+                "products_to_order": [2, 0],
+            }
+        }
+
+
+class Order(OrderCreateSchema):
+    order_id: int

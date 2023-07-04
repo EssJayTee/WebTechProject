@@ -2,23 +2,23 @@ import { useState, useEffect } from "react";
 
 import { MainNav } from "@/components/MainNav";
 
-import { DataTable } from "./components/DataTable";
-import { Columns } from "./components/Columns";
 import { UserNav } from "./components/UserNav";
 import { navigationLinks } from "../../config/navigationLinks";
 
-export const CustomersPage = () => {
-  const [customersInfo, setCustomersInfo] = useState([]);
+export const ProductsPage = () => {
+  const [productsInfo, setProductsInfo] = useState([]);
 
-
-  const fetchCustomersInfo = () => {
-    fetch("http://127.0.0.1:8000/customers")
+  const fetchProductsInfo = () => {
+    fetch("http://127.0.0.1:8000/products")
       .then((res) => res.json())
-      .then((info) => setCustomersInfo(info));
+      .then((info) => {
+        console.log(info);
+        setProductsInfo(info);
+      });
   };
-  
+
   useEffect(() => {
-    fetchCustomersInfo();
+    fetchProductsInfo();
   }, []);
 
   return (
@@ -33,27 +33,35 @@ export const CustomersPage = () => {
       </div>
       <div className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Customers</h2>
+          <h2 className="text-3xl font-bold tracking-tight">Products</h2>
         </div>
         <div className="hidden h-full flex-1 flex-col space-y-8 md:flex">
-          <ul className="customersInfoList">
-            {customersInfo.map((item) => (
+          <ul className="productsInfoList">
+            {productsInfo.map((item) => (
               <li key={item.id}>
                 <p>
                   <b>Name: </b>
                   {item.name}
                 </p>
                 <p>
-                  <b>Surname: </b>
-                  {item.surname}
+                  <b>Price: </b>
+                  {item.price}$
                 </p>
                 <p>
-                  <b>Email: </b>
-                  {item.email}
+                  <b>Brand: </b>
+                  {item.brand}
                 </p>
                 <p>
-                  <b>Phone number: </b>
-                  {item.phone_number}
+                  <b>Description: </b>
+                  {item.description}
+                </p>
+                <p>
+                  <b>Color: </b>
+                  {item.color}
+                </p>
+                <p>
+                  <b>Material: </b>
+                  {item.material}
                 </p>
               </li>
             ))}
